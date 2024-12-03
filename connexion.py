@@ -1,27 +1,29 @@
 import sqlite3
 import hashlib
 
-def check_password(email_client, pwd):
-    connexion = sqlite3.connect('cabinet_medical.db')
-    cursor = connexion.cursor()
-    hash_password = hashlib.sha256(pwd.encode()).hexdigest()
-    cursor.execute('''
-       SELECT 
-           id_patient
-       FROM 
-           patients
-       WHERE
-           password = ? AND email = ?
-       ''', (hash_password, email_client))
-
+def check_connexion(email_connexion, pwd_connexion, table, id):
+    try :
+        connexion = sqlite3.connect('cabinet_medical.db')
+        cursor = connexion.cursor()
+        hash_password = hashlib.sha256(pwd_connexion.encode()).hexdigest()
+        cursor.execute(f'''
+           SELECT 
+               {id}
+           FROM 
+               {table}
+           WHERE
+               password = ? AND email = ?
+           ''', (hash_password, email_connexion))
+    except sqlite3.OperationalError as e:
+        print("E-mail and password do not match, try again. Maybe you are not registered yet.")
+        print(e)
 
     result = cursor.fetchone()
-    print(result)
     connexion.close()
 
     return result is not None
 
 
-print(check_password('dpntjean@mail.com', 'carameldu04'))
+#print(check_connexion('dpntjean@mail.com', 'caraeldu04', 'patients'))
 
 

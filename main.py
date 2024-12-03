@@ -5,9 +5,9 @@ from multiprocessing.resource_tracker import register
 from create_patient import ajouter_patient, lister_patients
 from create_doctor import ajouter_medecin, lister_medecins
 from create_reservation import ajouter_reservation, lister_reservations
-from connexion import check_password
-
-
+from connexion import check_connexion
+import time
+import os
 
 
 
@@ -22,18 +22,23 @@ def fermer_connexion(self):
 def register_login():
 
     choix = int(input("Que voulez-vous faire ? "
-                  "\n1 : Se connecter en tant que patient, "
-                  "\n2 : Se connecter en tant que patient"
-                  "\n3 : S'inscrire en tant que patient, "
-                  "\n4 : S'inscrire en tant que médecin, "
-                  "\n> "))
+                      "\n1: Login"
+                      "\n2: Register"
+                      "\n> "))
+
+
+
 
     if choix == 1:
-        if type(check_password(email_client=input('Enter your mail adress: '),pwd = input('Enter your password: '))) is int:
-            print('Connected')
-            #appel de la fonction pour le client
-        else:
-            print("email and password didn't match")
+        email = input('Email: ')
+        while '@' not in email or '.' not in email:
+            email = input('Email is wrongly written: ')
+        password = input('Password: ')
+
+        if check_connexion(email,password,table='patients',id='id_patient') is not False:
+            print("Connexion to your Patient dashboard ...")
+        elif check_connexion(email,password,table='medecins',id='id_medecin') is not False:
+            print("Connexion to your Doctor dashboard ...")
 
 
 
@@ -64,7 +69,6 @@ def register_login():
 """    print(lister_patients())
     print(lister_medecins())
     print(lister_reservations())"""
-
 
 # Exécution du programme
 if __name__ == "__main__":

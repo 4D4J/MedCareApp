@@ -29,3 +29,5 @@ def lister_medecins():
         print(f"ID: {medecin[0]}, Nom: {medecin[1]} {medecin[2]}, Spécialité: {medecin[3]}, Tél: {medecin[4]} Password : {medecin[5]}")
 
     connexion.close()
+
+ajouter_medecin("Martin", "Claire", "securepass456", "Dentiste", "0605060708", "claire.martin@mail.com")
