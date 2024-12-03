@@ -4,7 +4,7 @@ from multiprocessing.resource_tracker import register
 
 from create_patient import ajouter_patient, lister_patients
 from create_doctor import ajouter_medecin, lister_medecins
-from create_reservation import ajouter_reservation, lister_reservations
+
 from connexion import check_connexion
 import time
 import os

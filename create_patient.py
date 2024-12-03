@@ -4,7 +4,7 @@ import hashlib
 #Quand on arrive sur la plateforme on se créé un compte patient, sauf si on est déja dans la liste des patients
 
 def ajouter_patient(nom, prenom, date_naissance,telephone, email, password):
-    connexion = sqlite3.connect('cabinet_medical.db')
+    connexion = sqlite3.connect('cabinet_medical333.db')
     cursor = connexion.cursor()
     #Password hashing
     password = hashlib.sha256(password.encode()).hexdigest()
@@ -22,7 +22,7 @@ def ajouter_patient(nom, prenom, date_naissance,telephone, email, password):
 
 #Si on est un docteur on peut voir la liste des patients inscrit sur la plateforme
 def lister_patients():
-    connexion = sqlite3.connect('cabinet_medical.db')
+    connexion = sqlite3.connect('cabinet_medical333.db')
     cursor = connexion.cursor()
     """Liste tous les patients"""
     cursor.execute('SELECT * FROM patients')

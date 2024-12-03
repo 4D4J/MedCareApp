@@ -2,7 +2,7 @@ import sqlite3
 
 #Si on est un docteur alors on peut s'inscrire sauf si on est déja inscrit dans l'application
 def ajouter_medecin(nom, prenom, password, specialite, telephone, email):
-    connexion = sqlite3.connect('cabinet_medical.db')
+    connexion = sqlite3.connect('cabinet_medical333.db')
     cursor = connexion.cursor()
 
     """Ajoute un nouveau médecin à la base de données"""
@@ -18,7 +18,7 @@ def ajouter_medecin(nom, prenom, password, specialite, telephone, email):
 
 #Si on est un patient on peut voir les medecins inscrit sur le site
 def lister_medecins():
-    connexion = sqlite3.connect('cabinet_medical.db')
+    connexion = sqlite3.connect('cabinet_medical333.db')
     cursor = connexion.cursor()
 
     """Liste tous les médecins"""
