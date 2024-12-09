@@ -9,7 +9,7 @@ MedCareApp is an application designed to put doctors and patients in touch with 
 - Patients can book appointments
 - Patients and Doctors can consult their data
 
-## Library
+## Libraries
 - Sqlite3 to control the database
 - hashlib to hash passwords
 - datetime to manage dates and hours of an appointment
