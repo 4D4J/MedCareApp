@@ -7,4 +7,12 @@ MedCareApp is an application designed to put doctors and patients in touch with 
 
 - Registration of new doctors and patients
 - Patients can book appointments
-- Patients and doctors can manage their schedule
+- Patients and Doctors can consult their data
+
+## Library
+- Sqlite3 to control the database
+- hashlib to hash passwords
+- datetime to manage dates and hours of an appointment
+- rich to personalize the user interface
+
+We hope you'll enjoy the app 😁
